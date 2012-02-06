@@ -76,7 +76,11 @@ as
                                v_lang_ctx,
                                v_warning);
         
-        add_file('plsql/'||p_type||'/'||p_name||'.'||get_ext||'.plsql',v_content);
+        if p_type like 'package%' or p_type like 'type%' then
+          add_file('plsql/'||replace(p_type,' body','')||'/'||p_name||'/'||p_name||'.'||get_ext||'.plsql',v_content);
+        else
+          add_file('plsql/'||p_type||'/'||p_name||'.'||get_ext||'.plsql',v_content);
+        end if;
         
         dbms_lob.freetemporary(v_content);
         
@@ -198,9 +202,9 @@ as
        
        procedure process_base64
        as
-          v_amount   number:= 4000;
+          v_amount   number:= 2000;
           v_offset   number:= 1;
-          v_buffer   varchar2(4000);
+          v_buffer   varchar2(2000);
           
           procedure add_line
           as
@@ -212,7 +216,7 @@ as
        
          dbms_lob.read(v_base64,v_amount,v_offset,v_buffer);
          
-         while v_amount = 4000 loop
+         while v_amount = 2000 loop
             add_line;
             v_offset:= v_offset+v_amount;
             dbms_lob.read(v_base64,v_amount,v_offset,v_buffer);

@@ -278,6 +278,7 @@ as
             v_offset     number:= 1;
             v_pos        number;
             v_source     dbms_sql.varchar2a;
+            v_length     number:= dbms_lob.getlength(p_source);
          begin
             
             v_pos:= dbms_lob.instr(p_source,chr(10),v_offset);
@@ -293,6 +294,10 @@ as
               v_offset:= v_pos+1;
               v_pos:= dbms_lob.instr(p_source,chr(10),v_offset);
             end loop;
+            
+            if v_offset < v_length then
+              v_source(v_source.count+1):= dbms_lob.substr(p_source,v_length-v_offset+1,v_offset);
+            end if;
             
             compile_plsql(v_source);
             
