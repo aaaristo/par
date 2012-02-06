@@ -41,3 +41,4 @@ end;
 
 -- easy eh?
 -- actually PARs can contain (and deploy) any PL/SQL source, java sources/classes/resources and xdb files
+-- once created a PAR has no external dependency (it uses only system provide packages to accomplish the deploy)
