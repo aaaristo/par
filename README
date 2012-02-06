@@ -1,6 +1,6 @@
 -- 1. create a par
 -- this is a sample creating a PAR for a package i use to read/write excel files in plsql
--- this code will generate a pl/sql package named par_plsql
+-- this code will generate a pl/sql package named par_excel
 begin
    
    par_creator.new_par('excel');
