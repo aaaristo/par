@@ -17,7 +17,7 @@ as
     
     procedure add_java_resource(p_name varchar2);
     
-    procedure add_xdb_file(p_path varchar2);
+    procedure add_xdb_file(p_path varchar2, p_base_path varchar2 default '/');
     
     procedure close_par;
     

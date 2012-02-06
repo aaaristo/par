@@ -8,6 +8,7 @@ as
     as
     begin
        v_name:= p_name;
+       dbms_lob.createtemporary(v_zip,true,dbms_lob.call);
     end;
     
     procedure add_file(p_path varchar2, p_content blob)
@@ -46,7 +47,7 @@ as
     
       dbms_lob.createtemporary(v_source,true,dbms_lob.call);
       
-      for c_cur in (select text
+      for c_cur in (select text, line
                       from user_source
                      where type= upper(p_type)
                        and name= upper(p_name)
@@ -128,7 +129,7 @@ as
       v_content  blob;
     begin
       dbms_lob.createtemporary(v_content,true,dbms_lob.call);    
-      dbms_java.export_source(p_name, v_content);
+      dbms_java.export_class(p_name, v_content);
       add_file('java/class/'||p_name||'.class',v_content);
       dbms_lob.freetemporary(v_content);      
     end;
@@ -153,11 +154,11 @@ as
       dbms_lob.freetemporary(v_content);      
     end;
     
-    procedure add_xdb_file(p_path varchar2)
+    procedure add_xdb_file(p_path varchar2, p_base_path varchar2 default '/')
     as
       v_content  blob;
     begin
-      select XDBURIType(p_path).getBlob() into v_content from dual;
+      select XDBURIType(p_base_path||p_path).getBlob() into v_content from dual;
       add_file('xdb/'||p_path,v_content);
     end;
     
@@ -277,6 +278,7 @@ as
     begin
        compile_plsql(get_par_spec);
        compile_plsql(get_par_body);
+       dbms_lob.freetemporary(v_zip);
     end;
     
 end;
