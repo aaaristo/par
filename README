@@ -1,3 +1,7 @@
+-- PAR: PL/SQL Archive
+-- a jar for plsql
+
+
 -- 1. create a par
 -- this is a sample creating a PAR for a package i use to read/write excel files in plsql
 -- this code will generate a pl/sql package named par_excel
@@ -36,3 +40,4 @@ begin
 end;
 
 -- easy eh?
+-- actually PARs can contain (and deploy) any PL/SQL source, java sources/classes/resources and xdb files
