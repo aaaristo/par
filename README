@@ -34,11 +34,11 @@ end;
 -- then you can take the generated PAR (par_excel package) and compile it 
 -- into another oracle schema
 
--- 3. deploy it contents!
+-- 3. deploy its contents!
 begin
  par_excel.deploy;
 end;
 
 -- easy eh?
 -- actually PARs can contain (and deploy) any PL/SQL source, java sources/classes/resources and xdb files
--- once created a PAR has no external dependency (it uses only system provide packages to accomplish the deploy)
+-- once created a PAR has no external dependency (it uses only system provided packages to accomplish the deploy)
