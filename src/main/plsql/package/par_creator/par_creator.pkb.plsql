@@ -163,7 +163,9 @@ as
       v_content  blob;
     begin
       select XDBURIType(p_base_path||p_path).getBlob() into v_content from dual;
-      add_file('xdb/'||p_path,v_content);
+      if v_content is not null and dbms_lob.getlength(v_content) > 0 then
+        add_file('xdb/'||p_path,v_content);
+      end if;
     end;
     
     procedure close_par
