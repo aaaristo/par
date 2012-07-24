@@ -158,7 +158,7 @@ as
       dbms_lob.freetemporary(v_content);      
     end;
     
-    procedure add_xdb_file(p_path varchar2, p_base_path varchar2 default '/')
+    procedure add_xdb_file(p_path varchar2, p_base_path varchar2 default par_template.DEFAULT_XDB_BASE)
     as
       v_content  blob;
     begin

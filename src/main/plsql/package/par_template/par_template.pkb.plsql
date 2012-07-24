@@ -242,7 +242,7 @@ as
      end;
      
      procedure deploy(p_skip_resolve  boolean default true, 
-                      p_xdb_base_path varchar2 default '/')
+                      p_xdb_base_path varchar2 default DEFAULT_XDB_BASE)
      as
        v_files file_list:= get_file_list;
        v_file  varchar2(255);
