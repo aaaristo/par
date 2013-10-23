@@ -1,6 +1,12 @@
 PAR: PL/SQL Archive
-a jar for plsql
 =======
+
+## a jar for plsql
+PAR is a plsql package that creates some other plsql packages (called PARs),
+that are really archives: those packages can contains ***java classes*** and any plsql code,
+so that you can export and deploy your libraries in some other schema/instance 
+simply compiling the par and executing its deploy procedure. For those who hate loadjava.
+
 
 ## 1. create a par
 this is a sample creating a PAR for a package i use to read/write excel files in plsql
