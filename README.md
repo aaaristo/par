@@ -58,3 +58,7 @@ actually PARs can contain (and deploy) any PL/SQL source, java sources/classes/r
 once created a PAR has no external dependency (it uses only system provided packages to accomplish the deploy)
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aaaristo/par/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aaaristo/par/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
