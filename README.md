@@ -38,7 +38,7 @@ end;
 then you can take the generated PAR (par_excel package) and compile it 
 into another oracle schema
 
-# 3. deploy its contents!
+## 3. deploy its contents!
 
 <pre>
 begin
